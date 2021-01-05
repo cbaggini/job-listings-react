@@ -1,24 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import data from './data.json';
+import JobListing from './JobListing';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+	<nav><img className="topBar" src={window.location.origin + '/images/bg-header-desktop.svg'} alt=""></img></nav>
+	<div className="jobContainer">
+		{data.map((job) => {
+			return <JobListing key={job.id} {... job} />
+		})}
+	</div>
+    </>
   );
 }
 

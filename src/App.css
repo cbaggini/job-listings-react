@@ -1,38 +1,127 @@
-.App {
-  text-align: center;
+#root {
+  font-family: "Spartan";
+  color: hsl(180, 14%, 20%);
+  font-weight: 500;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav {
+  background-color: hsl(180, 29%, 50%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.topBar {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 120px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.jobContainer {
+  background-color: hsl(180, 52%, 96%);
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  font-size: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+.jobListing {
+  display: flex;
+  margin: 1rem;
+  width: 80%;
+  /* border-left: 5px solid hsl(180, 29%, 50%); */
+  border-radius: 5px;
+  -webkit-box-shadow: 0 6px 6px -2px hsl(180, 29%, 80%);
+  -moz-box-shadow: 0 6px 6px -2px hsl(180, 29%, 80%);
+  box-shadow: 0 6px 6px -2px hsl(180, 29%, 80%);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.jobListing:first-child {
+  margin-top: 3rem;
+}
+
+.jobDescription {
+  display: flex;
+  width: 60%;
+  align-items: center;
+}
+
+.logo {
+  width: auto;
+  height: 90px;
+  margin: 0;
+  padding: 2rem;
+}
+
+.jobTitle {
+  display: flex;
+  margin: 0;
+  align-items: center;
+  font-weight: 700;
+}
+
+.company {
+  margin-right: 1rem;
+  color: hsl(180, 29%, 50%);
+}
+
+.new {
+  margin-right: 1rem;
+  color: hsl(180, 52%, 96%);
+  background-color: hsl(180, 29%, 50%);
+  padding: 0.3rem 0.5rem;
+  border-radius: 10px;
+}
+
+.featured {
+  color: hsl(180, 52%, 96%);
+  background-color: hsl(180, 14%, 20%);
+  padding: 0.3rem 0.5rem;
+  border-radius: 10px;
+}
+
+.location {
+  color: hsl(180, 8%, 52%);
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  width: 40%;
+  align-items: center;
+  color: hsl(180, 29%, 50%);
+  font-weight: 700;
+}
+
+.skills > p {
+  margin-right: 2.5rem;
+}
+
+@media (max-width: 600px) {
+  .jobListing,
+  .jobDescription {
+    flex-direction: column;
+    align-items: center;
   }
-  to {
-    transform: rotate(360deg);
+
+  .jobDescription {
+    width: 100%;
+  }
+
+  .logo {
+    align-self: flex-start;
+    padding: 0 1rem;
+    height: 50px;
+  }
+
+  .jobDetails {
+    border-bottom: 1px solid hsl(180, 8%, 52%);
+  }
+
+  .skills {
+    flex-direction: row;
+    width: 80%;
+    justify-content: flex-start;
+    padding: 0;
   }
 }
