@@ -2,8 +2,7 @@ import React from 'react';
 import JobDetails from './JobDetails';
 
 const JobListing = (props) => {
-	const {logo, role, level, languages} = props;
-	console.log(logo.slice(1));
+	const {logo, role, level, languages, tools, filterJobs} = props;
 	return (
 		<section className="jobListing">
 			<article className="jobDescription">
@@ -11,12 +10,13 @@ const JobListing = (props) => {
 				<JobDetails {... props} />
 			</article>
 			<article className="skills">
-				<p>{role}</p>
-				<p>{level}</p>
-				{languages.map((lan) => <p>{lan}</p>)}
+				<button onClick={filterJobs}>{role}</button>
+				<button onClick={filterJobs}>{level}</button>
+				{languages.map((lan) => <button onClick={filterJobs}>{lan}</button>)}
+				{tools.map((lan) => <button onClick={filterJobs}>{lan}</button>)}
 			</article>
 		</section>
 	);
 }
-
+ 
 export default JobListing;
