@@ -12,7 +12,10 @@ function App() {
 			console.log("not adding anything");
 		} else {
 			const jobItems = jobs.selected.concat(e.target.textContent);
-			let selectedJobs = data.filter((el) => jobItems.includes(el.role) || jobItems.includes(el.level) || el.languages.some(lan => jobItems.includes(lan)) || el.tools.some(lan => jobItems.includes(lan)));
+			let selectedJobs = data;
+			for (let i=0; i<jobItems.length; i++) {
+				selectedJobs = selectedJobs.filter((el) => jobItems[i].includes(el.role) || jobItems[i].includes(el.level) || el.languages.some(lan => jobItems[i].includes(lan)) || el.tools.some(lan => jobItems[i].includes(lan)));
+			}				
 			setJobs({...jobs, jobData: selectedJobs, selected: jobItems});
 		}
 	}
@@ -21,7 +24,10 @@ function App() {
 		const toRemove = e.target.previousElementSibling.innerText;
 		const jobItems = jobs.selected.slice(0,jobs.selected.indexOf(toRemove)).concat(jobs.selected.slice(jobs.selected.indexOf(toRemove)+1, jobs.selected.length));
 		if (jobItems.length > 0) {
-			let selectedJobs = data.filter((el) => jobItems.includes(el.role) || jobItems.includes(el.level) || el.languages.some(lan => jobItems.includes(lan)) || el.tools.some(lan => jobItems.includes(lan)));
+			let selectedJobs = data;
+			for (let i=0; i<jobItems.length; i++) {
+				selectedJobs = selectedJobs.filter((el) => jobItems[i].includes(el.role) || jobItems[i].includes(el.level) || el.languages.some(lan => jobItems[i].includes(lan)) || el.tools.some(lan => jobItems[i].includes(lan)));
+			}	
 			setJobs({...jobs, selected: jobItems, jobData: selectedJobs});
 		} else {
 			setJobs({...jobs, selected: jobItems, jobData: data});
